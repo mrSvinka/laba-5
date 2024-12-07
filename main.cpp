@@ -18,41 +18,42 @@ using namespace std;
 int main() 
 {
 //последовательнасть
-    int subsequence;
+    int n;
     cout << "Enter subsequence: "; //получили послед.
-    cin >> subsequence;
+    cin >> n;
 
-    vector<int> numbers(subsequence);
     long long product = 1;
-    int maxNumber = -1;
-    int maxIndex = -1;
+    int maxNum = 0;
+    int maxIndex = 0;
 
-    for (int i = 0; i < subsequence; ++i) 
-    {
-        cout << "Введите число A" << i + 1 << ": ";
-        cin >> numbers[i];
-        
+
+
+for (int i = 1; i <= n; ++i) 
+{
+        int num;
+        cout << "Введите число " << i << ": ";
+        cin >> num;
 //оканчивается ли число на 2?
-        if (numbers[i] % 10 == 2) 
+        if (num % 10 == 2) 
         {
-            product *= numbers[i];
+            product *= num;
 // проверка на максимальное число
-            if (numbers[i] > maxNumber) 
+            if (num > maxNum) 
             {
-                maxNumber = numbers[i]; //число
-                maxIndex = i + 1; // номер (индекс + 1)
+                maxNum = num;  //число
+                maxIndex = i; // номер (индекс + 1)
             }
         }
     }
 
-    if (maxNumber == -1) 
+    if (maxNum == 0) 
     {
         cout << "нет чисела, оканчивающивося на 2." << endl;
     } 
     else 
     {
         cout << "произведение чисел, оканчивающихся на 2: " << product << endl;
-        cout << "наибольшее число, оканчивающееся на 2: " << maxNumber << endl;
+        cout << "наибольшее число, оканчивающееся на 2: " << maxNum << endl;
         cout << "номер числа в последовательности: " << maxIndex << endl;
     }
 
